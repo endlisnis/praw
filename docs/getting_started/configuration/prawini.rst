@@ -111,7 +111,7 @@ like so:
 
 .. code-block:: python
 
-    reddit = praw.Reddit("bot2", user_agent="bot2 user agent")
+    reddit = praw.Reddit(site_name="bot2", user_agent="bot2 user agent")
 
 .. note::
 
@@ -145,7 +145,7 @@ This uses basic interpolation thus :class:`.Reddit` need to be initialized as fo
 
 .. code-block:: python
 
-    reddit = praw.Reddit("bot1", config_interpolation="basic")
+    reddit = praw.Reddit(site_name="bot1", config_interpolation="basic")
 
 Then the value of ``reddit.config.user_agent`` will be ``"script:MyBot:v1.2.3 (by
 u/MyUser)"``.
