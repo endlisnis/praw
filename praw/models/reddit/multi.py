@@ -107,7 +107,7 @@ class Multireddit(SubredditListingMixin, RedditBase):
     def _fetch_data(self):
         name, fields, params = self._fetch_info()
         path = API_PATH[name].format(**fields)
-        return self._reddit.request("GET", path, params)
+        return self._reddit.request(method="GET", path=path, params=params)
 
     def _fetch(self):
         data = self._fetch_data()
