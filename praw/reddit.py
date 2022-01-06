@@ -848,7 +848,7 @@ class Reddit:
         """
         return self._objectify_request(data=data, json=json, method="PUT", path=path)
 
-    def random_subreddit(self, nsfw: bool = False) -> "praw.models.Subreddit":
+    def random_subreddit(self, *, nsfw: bool = False) -> "praw.models.Subreddit":
         """Return a random lazy instance of :class:`.Subreddit`.
 
         :param nsfw: Return a random NSFW (not safe for work) subreddit (default:
