@@ -17,6 +17,9 @@ Unreleased
 - Drop support for Python 3.6, which is end-of-life on 2021-12-23.
 - :meth:`.conversations` now returns a :class:`.ListingGenerator` allowing you to page
   through more than 100 conversations.
+- :meth:`._upload_media` and thus :meth:`.submit_image` now raises
+  :class:`prawcore.exceptions.ServerError` instead of
+  :class:`requests.exceptions.HTTPError`.
 
 **Deprecated**
 

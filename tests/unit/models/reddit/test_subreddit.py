@@ -70,7 +70,7 @@ class TestSubreddit(UnitTest):
         with pytest.raises(MediaPostFailed):
             self.reddit.subreddit("test").submit_image("Test", "dummy path")
 
-    @mock.patch("praw.models.Subreddit._read_and_post_media")
+    @mock.patch("praw.Reddit._read_and_post_media")
     @mock.patch(
         "praw.Reddit.post",
         return_value={
@@ -87,7 +87,6 @@ class TestSubreddit(UnitTest):
         http_response.status_code = 500
 
         response = mock.Mock()
-        response.ok = True
         response.raise_for_status = mock.Mock(
             side_effect=HTTPError(response=http_response)
         )

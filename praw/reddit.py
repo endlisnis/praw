@@ -718,6 +718,17 @@ class Reddit:
                     return sleep_seconds
         return None
 
+    def _read_and_post_media(
+        self, media_path, upload_url, upload_data, call_on_failure=None
+    ):
+        with open(media_path, "rb") as media:
+            response = self._core._requestor._http.post(
+                upload_url, data=upload_data, files={"file": media}
+            )
+        if call_on_failure is not None and not response.ok:
+            call_on_failure(response)
+        return response
+
     def delete(
         self,
         path: str,
